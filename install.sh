@@ -1,3 +1,4 @@
+#! /bin/bash
 
 mkdir .config && mv nvim .config/
 cp .config/.tmux.conf .
