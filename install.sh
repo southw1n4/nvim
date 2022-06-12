@@ -33,6 +33,5 @@ echo "now process vue and django........"
 hash -d npm
 npm install vue@next
 npm i element-ui axios mockjs -S
-pip install django
-pip install djangorestframework
+
 
