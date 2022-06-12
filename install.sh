@@ -18,10 +18,8 @@ git clone --depth 1 https://github.com/mfussenegger/nvim-dap\
  ~/.local/share/nvim/site/pack/packer/start/nordic.nvim
  
  git clone --depth 1 https://github.com/kyazdani42/nvim-tree.lua\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
- 
- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/nvim-tree.lua
+ 
  
  git clone --depth 1 https://github.com/kyazdani42/nvim-web-devicons\
  ~/.local/share/nvim/site/pack/packer/start/nvim-web-devicons
