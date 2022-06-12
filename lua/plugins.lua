@@ -3,7 +3,7 @@ return require('packer').startup(function()
   
   use 'wbthomason/packer.nvim'
   use 'mfussenegger/nvim-dap'
-  use "akinsho/toggleterm.nvim"
+  use 'akinsho/toggleterm.nvim'
   use 'tamton-aquib/staline.nvim'
    use {
     'andersevenrud/nordic.nvim',
