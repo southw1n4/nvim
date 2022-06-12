@@ -1,8 +1,11 @@
 #! /bin/bash
+#--------------------------------------------nvim----------------------------------------
+
+echo "now process nvim.........."
 GITHUB=https://github.com
 DIST_DIR=~/.local/share/nvim/site/pack/packer/start
-
-
+#git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+# ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 cp .config/nvim/.tmux.conf .
 
 for line in `cat .config/nvim/lua/plugins.lua | grep "'*/*'" | cut -d "'" -f 2`
@@ -22,5 +25,14 @@ do
 done
 
 
-#git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-# ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+#--------------------------------------------vue----------------------------------------
+
+echo "now process vue and django........"
+
+hash -d npm
+npm install vue@next
+npm i element-ui axios mockjs -S
+pip install django
+pip install djangorestframework
+
