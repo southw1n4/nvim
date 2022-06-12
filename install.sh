@@ -1,37 +1,26 @@
 #! /bin/bash
+GITHUB=https://github.com
+DIST_DIR=~/.local/share/nvim/site/pack/packer/start
+
 
 cp .config/nvim/.tmux.conf .
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
- 
-git clone --depth 1 https://github.com/mfussenegger/nvim-dap\
- ~/.local/share/nvim/site/pack/packer/start/nvim-dap
- 
- git clone --depth 1 https://github.comakinsho/toggleterm.nvim\
- ~/.local/share/nvim/site/pack/packer/start/toggleterm.nvim
- 
- git clone --depth 1 https://github.com/tamton-aquib/staline.nvim\
- ~/.local/share/nvim/site/pack/packer/start/staline.nvim
- 
- git clone --depth 1 https://github.com/andersevenrud/nordic.nvim\
- ~/.local/share/nvim/site/pack/packer/start/nordic.nvim
- 
- git clone --depth 1 https://github.com/kyazdani42/nvim-tree.lua\
- ~/.local/share/nvim/site/pack/packer/start/nvim-tree.lua
- 
- 
- git clone --depth 1 https://github.com/kyazdani42/nvim-web-devicons\
- ~/.local/share/nvim/site/pack/packer/start/nvim-web-devicons
- 
-  git clone --depth 1 https://github.com/akinsho/bufferline.nvim\
- ~/.local/share/nvim/site/pack/packer/start/bufferline.nvim
- 
-  git clone --depth 1 https://github.com/neoclide/coc.nvim\
- ~/.local/share/nvim/site/pack/packer/start/coc.nvim
- 
-  git clone --depth 1 https://github.com/iamcco/markdown-preview.nvim\
- ~/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim
- 
-   git clone --depth 1 https://github.com/iamcco/mathjax-support-for-mkdp\
- ~/.local/share/nvim/site/pack/packer/start/mathjax-support-for-mkdp
+for line in `cat .config/nvim/lua/plugins.lua | grep "'*/*'" | cut -d "'" -f 2`
+do
+        new_line=`echo ${line} | sed 's#/# #g' | cut -d ' ' -f 1-5`
+        if [ ! `echo ${new_line} | wc -w ` -eq 2 ]
+        then
+                continue
+        fi
+        author=`echo ${new_line} | cut -d ' ' -f 1`
+        tool=`echo ${new_line} | cut -d ' ' -f 2`
+        if [ -e ${DIST_DIR}/${tool} ]
+        then
+                continue
+        fi
+        git clone --depth 1 ${GITHUB}/${author}/${tool} ${DIST_DIR}/${tool}
+done
+
+
+#git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+# ~/.local/share/nvim/site/pack/packer/start/packer.nvim
