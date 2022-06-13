@@ -31,7 +31,7 @@ done
 echo "now process vue and django........"
 
 hash -d npm
-npm install vue@next
+# npm install vue@next
 
 
 
